@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="Nieves Borrero & Pablo León">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css" rel="stylesheet" >
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="../../static/style/frontend.css" type="text/css" rel="stylesheet">
+    <title>Administración Chatbot</title>
+</head>
+<body>
+  <nav>
+    <div class="nav-wrapper">
+      <a id="login_link" href="/logout">Login/Logout</a>
+      <span class="brand-logo center">Administración Chatbot</span>
+      <a href="/" class="brand-logo right"><img src="../../static/images/logo.png"></a>
+    </div>
+  </nav>
+  <aside>
+    <ul>
+        <li><a href="/intents">Intents</a></li>
+        <li><a href="/entities">Entidades</a></li>
+        <li><a href="/">Bots</a></li>
+        <li><a href="/validate">Usuarios</a></li>
+      </ul>
+  </aside>
+
+{{{body}}}
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+<script src="../../static/form.js"></script>
+<script src="../../static/jquery.easyPaginate.js"></script>
+
+
+        <footer class="page-footer indigo">
+          <div class="container">
+            <div class="row">
+              <div class="col l6 s12">
+                <h5 class="white-text">Contacto</h5>
+                <p> informatica@iesgrancapitan.org</p>
+              </div>
+            </div>
+          </div>
+          <div class="footer-copyright">
+            <div class="container">
+            <span>© {{year}}  Nieves Borrero - Pablo León</span>
+            <span class="right">IES Gran Capitán - Departamento de Informática</span>
+          </div>
+        </div>
+        </footer>
+</body>
+</html>
+<script>
+	$(function(){
+		$('#list_intent').easyPaginate({
+    paginateElement: 'a',
+    elementsPerPage: 11,
+    effect: 'climb',
+    prevButtonText: 'Anterior -',
+    nextButtonText: ' Siguiente',
+    firstButton: false,
+    lastButton: false
+});
+$('#list_entity').easyPaginate({
+    paginateElement: 'a',
+    elementsPerPage: 11,
+    effect: 'climb',
+    prevButtonText: 'Anterior -',
+    nextButtonText: ' Siguiente',
+    firstButton: false,
+    lastButton: false
+});
+
+})
+
+</script>

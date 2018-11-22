@@ -1,0 +1,64 @@
+<div class="container center-align" id="body-wrapper">
+    <h5 class="indigo-text">{{this.name}}</h5>
+<form action="/edit" method="POST">
+<input type="hidden" name="id" id="input-id" value="{{this.id}}">
+<button class="left btn btn-primary right indigo" type="submit" id="open-edit-intent">
+    <i class="material-icons">mode_edit</i>
+</button>
+</form>
+    <div class="row ">
+        <div class="input-field col s12">
+            <div class="collection col s10 m10 offset-m1 offset-s1">
+            <h5 class="collection-item indigo-text">Preguntas del usuario</h5>
+			{{#each this.userSays }}
+                <p class="collection-item">
+                {{#each data}}
+             		{{#if meta}}
+					        {{#isnt meta "@sys.ignore" }}
+						        <span>@{{alias}}</span>
+					        {{/isnt}}
+					        {{#eq meta "@sys.ignore"}}
+						        <span>{{text}}</span>
+					        {{/eq}}
+				    {{else}}
+					    <span> {{text}} </span>
+				    {{/if}}
+
+                {{/each}}
+                </p>
+
+            {{/each}}
+
+        </div>
+        <div class="select input-field col s10 m10 offset-m1 offset-s1">
+            {{#each this.responses }}
+                {{#each messages}}
+                    {{#if textToSpeech}}
+                        <div class="card type-text input-field col s12"><h5 class="indigo-text">Respuestas del chatbot</h5>
+                        <p>{{textToSpeech}}</p></div>
+                    {{/if}}
+                    {{#if items}}
+                        <div class="card type-text input-field col s12"><h5 class="indigo-text">Respuestas del chatbot</h5>
+                        {{#each items}}
+                        <p>{{textToSpeech}}</p>
+                        {{/each}}
+						</div>
+                    {{/if}}
+                    {{#if image}}
+                        <div class="card type-image input-field col s12"><h5 class="indigo-text"> Imagen/Gif</h5>
+                        <p>{{image.url}}</p></div>
+                    {{/if}}
+                    {{#if url}}
+                        <div class="card type-link input-field col s12"><h5 class="indigo-text"> Link/Documento</h5>
+                            <p>{{destinationName}}</p>
+                            <p>{{url}}</p>
+                        </div>
+                    {{/if}}
+                {{/each}}
+            {{/each}}
+        </div>
+    </div>
+<button class="right btn btn-primary red" id="btn-delete-intent"><i class="material-icons right">delete</i>ELIMINAR</button>
+
+</div>
+</div>
